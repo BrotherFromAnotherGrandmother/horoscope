@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 
 
@@ -21,4 +21,4 @@ def get_info_about_zodiac_sign(request, sign_zodiac):
 
     if sign_zodiac.lower() in signs:
         return HttpResponse(signs[sign_zodiac.lower()])
-    return HttpResponse(f"Неизвестный знак зодиака - {sign_zodiac}")
+    return HttpResponseNotFound(f"Неизвестный знак зодиака - {sign_zodiac}")
