@@ -22,7 +22,8 @@ def index(request):
 
     li_elements = ''
     for sign in zodiacs:
-        li_elements += f'<li>{sign.title()}</li>'
+        redirect_path = reverse('horoscope_name', args=(sign,))
+        li_elements += f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
     response =f"""
     <ol>
         {li_elements}
