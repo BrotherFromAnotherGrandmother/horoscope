@@ -26,7 +26,3 @@ def get_info_about_zodiac_sign(request, sign_zodiac:str):
 
 def get_info_about_zodiac_sign_by_number(request, sign_zodiac:int):
     return HttpResponse(f'This is number - {sign_zodiac}')
-
-
-def get_info_about_16(request):
-    return HttpResponse('This is 16')
