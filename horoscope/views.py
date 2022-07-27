@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 
@@ -18,10 +17,24 @@ zodiac_dict = {
 }
 
 
+def index(request):
+    zodiacs = list(zodiac_dict)
+
+    li_elements = ''
+    for sign in zodiacs:
+        li_elements += f'<li>{sign.title()}</li>'
+    response =f"""
+    <ol>
+        {li_elements}
+    </ol>
+    """
+    return HttpResponse(response)
+
+
 def get_info_about_zodiac_sign(request, sign_zodiac:str):
     description = zodiac_dict.get(sign_zodiac)
     if description:
-        return HttpResponse(description)
+        return HttpResponse(f'<h2>{description}</h2>')
     return HttpResponseNotFound(f"Неизвестный знак зодиака - {sign_zodiac}")
 
 
