@@ -16,6 +16,13 @@ zodiac_dict = {
     "pisces": "Рыбы - двенадцатый знак зодиака, планеты Юпитер (с 20 февраля по 20 марта)."
 }
 
+zodiac_element = {
+    'fire': ['aries', 'leo', 'sagittarius'],
+    'earth': ['taurus', 'virgo', 'capricorn'],
+    'air': ['gemini', 'libra', 'aquarius'],
+    'water': ['cancer', 'scorpio', 'pisces']
+}
+
 
 def index(request):
     zodiacs = list(zodiac_dict)
