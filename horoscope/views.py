@@ -31,7 +31,7 @@ def index(request):
     for sign in zodiacs:
         redirect_path = reverse('horoscope_name', args=(sign,))
         li_elements += f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
-    response =f"""
+    response = f"""
     <ol>
         {li_elements}
     </ol>
@@ -39,17 +39,31 @@ def index(request):
     return HttpResponse(response)
 
 
-def get_info_about_zodiac_sign(request, sign_zodiac:str):
+def get_info_about_zodiac_sign(request, sign_zodiac: str):
     description = zodiac_dict.get(sign_zodiac)
     if description:
         return HttpResponse(f'<h2>{description}</h2>')
     return HttpResponseNotFound(f"Неизвестный знак зодиака - {sign_zodiac}")
 
 
-def get_info_about_zodiac_sign_by_number(request, sign_zodiac:int):
+def get_info_about_zodiac_sign_by_number(request, sign_zodiac: int):
     zodiacs = list(zodiac_dict)
     if sign_zodiac > len(zodiacs):
         return HttpResponseNotFound(f"Неверный номер знака зодиака - {sign_zodiac}")
     name_zodiac = zodiacs[sign_zodiac - 1]
     redirect_url = reverse('horoscope_name', args=(name_zodiac,))
     return HttpResponseRedirect(redirect_url)
+
+
+def types_sign_zodiac(request):
+    typesOfZodiacs = list(zodiac_element)
+    rez_str = ''
+    for type_from_list in typesOfZodiacs:
+        redirect_path = reverse('typeHoroscope', args=(type_from_list,))
+        rez_str += f"<li><a href='{redirect_path}'>{type_from_list.title()}</a></li>"
+    response = f"""
+        <ol>
+            {rez_str}
+        </ol>
+        """
+    return HttpResponse(response)
