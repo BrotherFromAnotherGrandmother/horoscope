@@ -67,3 +67,8 @@ def types_sign_zodiac(request):
         </ol>
         """
     return HttpResponse(response)
+
+
+def get_info_about_type_zodiac(request, type_zodiac):
+    if type_zodiac.lower() in zodiac_element:
+        return HttpResponse(zodiac_element[type_zodiac.lower()])
