@@ -60,8 +60,8 @@ def types_sign_zodiac(request):
     typesOfZodiacs = list(zodiac_element)
     rez_str = ''
     for type_from_list in typesOfZodiacs:
-        # redirect_path = reverse('typeHoroscope', args=(type_from_list,))
-        redirect_path = f'horoscope/type/{type_from_list}'
+        # redirect_path = reverse('typeHoroscope', args=(type_from_list,)) # не работает с функцией reverse
+        redirect_path = f'{type_from_list}'
         rez_str += f"<li><a href='{redirect_path}'>{type_from_list.title()}</a></li>"
     response = f"""
         <ol>
