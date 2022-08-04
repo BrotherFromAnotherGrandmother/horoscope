@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'horoscope',
     'Kianu_Rivz',
+    'guinness',
 ]
 
 MIDDLEWARE = [
