@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'horoscope',
+    'Kianu_Rivz',
 ]
 
 MIDDLEWARE = [
