@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from django.template.loader import render_to_string
+
 
 zodiac_dict = {
     "aries": "Овен - первый знак зодиака, планета Марс (с 21 марта по 20 апреля).",
@@ -41,8 +41,10 @@ def index(request):
 
 
 def get_info_about_zodiac_sign(request, sign_zodiac: str):
-    response = render_to_string('horoscope/info_zodiac.html')
-    return HttpResponse(response)
+    description = zodiac_dict.get(sign_zodiac)
+    if description:
+        return HttpResponse(f'<h2>{description}</h2>')
+    return HttpResponseNotFound(f"Неизвестный знак зодиака - {sign_zodiac}")
 
 
 def get_info_about_zodiac_sign_by_number(request, sign_zodiac: int):
@@ -58,7 +60,8 @@ def types_sign_zodiac(request):
     typesOfZodiacs = list(zodiac_element)
     rez_str = ''
     for type_from_list in typesOfZodiacs:
-        redirect_path = reverse('typeHoroscope', args=(type_from_list,))
+        # redirect_path = reverse('typeHoroscope', args=(type_from_list,))
+        redirect_path = f'horoscope/type/{type_from_list}'
         rez_str += f"<li><a href='{redirect_path}'>{type_from_list.title()}</a></li>"
     response = f"""
         <ol>
