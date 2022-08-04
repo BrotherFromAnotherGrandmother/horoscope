@@ -42,7 +42,12 @@ def index(request):
 
 
 def get_info_about_zodiac_sign(request, sign_zodiac: str):
-    return render(request, 'horoscope/info_zodiac.html')
+    description = zodiac_dict.get(sign_zodiac)
+    data = {
+        'description_zodiac': description,
+        'zodiac': sign_zodiac.title(),
+    }
+    return render(request, 'horoscope/info_zodiac.html', context=data)
 
 
 def get_info_about_zodiac_sign_by_number(request, sign_zodiac: int):
