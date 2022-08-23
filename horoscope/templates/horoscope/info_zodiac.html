@@ -11,5 +11,14 @@
     {% else %}
         <h2>{{description_zodiac}}</h2>
     {% endif %}
+    {% if my_list|length >= 3 %}
+        <h2>Список из 3 или более элементов {{my_list}}</h2>
+    {% elif my_list|length == 2 %}
+        <h2>Список из 2 элементов</h2>
+    {% elif my_list|length == 1 %}
+        <h2>Список из 1 элемента</h2>
+    {% else %}
+        <h2>Пустой список</h2>
+    {% endif %}
 </body>
 </html>
