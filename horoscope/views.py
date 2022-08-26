@@ -29,7 +29,8 @@ def index(request):
     zodiacs = list(zodiac_dict)
     # li_elements += f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
     context = {
-        'zodiacs': zodiacs
+        'zodiacs': zodiacs,
+        'zodiac_dict': zodiac_dict,
     }
     return render(request, 'horoscope/index.html', context=context)
 

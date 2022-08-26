@@ -15,6 +15,10 @@
                 <li>{{forloop.counter}} {{zodiac|title}}</li>
             {% endif %}
         {% endfor %}
+
+        {% for key, value in zodiac_dict.items %}
+            <p>{{ key }}: {{ value }}</p>
+        {% endfor %}
     </ul>
 </body>
 </html>
