@@ -6,18 +6,9 @@
 </head>
 <body>
     <ul>
-        <li>aries</li>
-        <li>taurus</li>
-        <li>gemini</li>
-        <li>cancer</li>
-        <li>leo</li>
-        <li>virgo</li>
-        <li>libra</li>
-        <li>scorpio</li>
-        <li>sagittarius</li>
-        <li>capricorn</li>
-        <li>aquarius</li>
-        <li>pisces</li>
+        {% for zodiac in zodiacs%}
+            <li>{{forloop.counter}} {{zodiac|title}}</li>
+        {% endfor %}
     </ul>
 </body>
 </html>
