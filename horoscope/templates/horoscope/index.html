@@ -18,6 +18,8 @@
 
         {% for key, value in zodiac_dict.items %}
             <p>{{ key }}: {{ value }}</p>
+        {% empty %}
+            <p>Sorry, no zodiacs in this list.</p>
         {% endfor %}
     </ul>
 </body>
