@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Меню</title>
+    <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-    <ul>
-        {% for zodiac in zodiacs%}
-            <li><a href="{% url 'horoscope_name' sign_zodiac=zodiac %}">{{zodiac|title}}</a></li>
-        {% endfor %}
-    </ul>
+
+    {% block content %} {% endblock %}
+
 </body>
 </html>
