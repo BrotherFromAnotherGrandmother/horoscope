@@ -7,7 +7,7 @@
 <body>
     <ul>
         {% for zodiac in zodiacs%}
-            <li>{{forloop.counter}} {{zodiac|title}}</li>
+            <li><a href="{% url 'horoscope_name' sign_zodiac=zodiac %}">{{zodiac|title}}</a></li>
         {% endfor %}
     </ul>
 </body>
