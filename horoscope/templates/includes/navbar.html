@@ -1,10 +1,7 @@
 <nav>
-    <a href="/horoscope">Главная</a> |
+    <a href="{% url 'horoscope_index'%}">Главная</a> |
     <a href="https://stepik.org/lesson/681510/step/1?unit=680289">Источник</a>
     {% for zodiac in zodiacs%}
         | <a href="{% url 'horoscope_name' sign_zodiac=zodiac %}">{{zodiac|title}}</a>
     {% endfor %}
 </nav>
-<p>Переменнная zodiac = {{zodiac}}</p>
-<p>Переменнная description_zodiac = {{description_zodiac}}</p>
-<p>Переменнная zodiacs = {{zodiacs}}</p>
