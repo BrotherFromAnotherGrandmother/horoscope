@@ -7,6 +7,8 @@
 
 
 {% block content %}
+    {% include 'includes/navbar.html' %}
+
     <ul>
         {% for zodiac in zodiacs%}
             <li><a href="{% url 'horoscope_name' sign_zodiac=zodiac %}">{{zodiac|title}}</a></li>
