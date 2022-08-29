@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import render
 
 zodiac_dict = {
     "aries": "Овен - первый знак зодиака, планета Марс (с 21 марта по 20 апреля).",
@@ -26,24 +27,22 @@ zodiac_element = {
 
 def index(request):
     zodiacs = list(zodiac_dict)
-
-    li_elements = ''
-    for sign in zodiacs:
-        redirect_path = reverse('horoscope_name', args=(sign,))
-        li_elements += f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
-    response = f"""
-    <ol>
-        {li_elements}
-    </ol>
-    """
-    return HttpResponse(response)
+    # li_elements += f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
+    context = {
+        'zodiacs': zodiacs,
+        'zodiac_dict': zodiac_dict,
+    }
+    return render(request, 'horoscope/index.html', context=context)
 
 
 def get_info_about_zodiac_sign(request, sign_zodiac: str):
     description = zodiac_dict.get(sign_zodiac)
-    if description:
-        return HttpResponse(f'<h2>{description}</h2>')
-    return HttpResponseNotFound(f"Неизвестный знак зодиака - {sign_zodiac}")
+    data = {
+        'description_zodiac': description,
+        'zodiac': sign_zodiac.title(),
+        'my_list': [2, 3, 4, 2, 3, 4]
+    }
+    return render(request, 'horoscope/info_zodiac.html', context=data)
 
 
 def get_info_about_zodiac_sign_by_number(request, sign_zodiac: int):
@@ -59,7 +58,8 @@ def types_sign_zodiac(request):
     typesOfZodiacs = list(zodiac_element)
     rez_str = ''
     for type_from_list in typesOfZodiacs:
-        redirect_path = reverse('typeHoroscope', args=(type_from_list,))
+        # redirect_path = reverse('typeHoroscope', args=(type_from_list,)) # не работает с функцией reverse
+        redirect_path = f'{type_from_list}'
         rez_str += f"<li><a href='{redirect_path}'>{type_from_list.title()}</a></li>"
     response = f"""
         <ol>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Гороскоп для {{zodiac}}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Приложение гороскоп</h1>
+    {% if description_zodiac is None %}
+        <h2>Неправильный знак зодиака - {{zodiac}}</h2>
+    {% else %}
+        <h2>{{description_zodiac}}</h2>
+    {% endif %}
+{% endblock %}
