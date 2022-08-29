@@ -7,7 +7,7 @@
 
 
 {% block content %}
-    {% include 'includes/navbar.html' only %}
+    {% include 'includes/navbar.html' only with a=100 b=200 %}
 
     <h1>Приложение гороскоп</h1>
     {% if description_zodiac is None %}
