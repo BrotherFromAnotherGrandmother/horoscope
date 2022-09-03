@@ -71,3 +71,7 @@ def types_sign_zodiac(request):
 def get_info_about_type_zodiac(request, type_zodiac):
     if type_zodiac.lower() in zodiac_element:
         return HttpResponse(zodiac_element[type_zodiac.lower()])
+
+
+def get_info_about_beautiful_table(request):
+    return render(request, 'horoscope/beautiful_table.html')
