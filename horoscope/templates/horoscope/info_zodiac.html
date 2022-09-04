@@ -14,7 +14,7 @@
 {% block content %}
     {% include 'includes/navbar.html' %}
 
-    <h1>Приложение гороскоп</h1>
+    <h1>{{sign_name}}</h1>
     {% if description_zodiac is None %}
         <h2>Неправильный знак зодиака - {{zodiac}}</h2>
     {% else %}
