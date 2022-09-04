@@ -24,5 +24,5 @@ urlpatterns = [
     path('horoscope/', include('horoscope.urls')),
     path('kianu/', include('Kianu_Rivz.urls')),
     path('guinness/', include('guinness.urls')),
-    path('beautiful_table/', views.get_info_about_beautiful_table, name='beautiful_table'),
+    path('beautiful_table/', include('table.urls')),
 ]

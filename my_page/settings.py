@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'horoscope',
     'Kianu_Rivz',
     'guinness',
+    'table',
 ]
 
 MIDDLEWARE = [
