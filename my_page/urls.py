@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from horoscope import views
 
 
 
@@ -23,4 +24,5 @@ urlpatterns = [
     path('horoscope/', include('horoscope.urls')),
     path('kianu/', include('Kianu_Rivz.urls')),
     path('guinness/', include('guinness.urls')),
+    path('beautiful_table/', include('table.urls')),
 ]
